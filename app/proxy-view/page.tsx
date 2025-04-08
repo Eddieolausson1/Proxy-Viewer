@@ -31,7 +31,7 @@ export default function ProxyViewPage() {
     if (url && proxy) {
       try {
         // Call the API to fetch the URL using the proxy
-        const response = await fetch(`/api/proxy?url=${encodeURIComponent(url)}&proxy=${encodeURIComponent(proxy)}`);
+        const response = await fetch(`proxy?url=${encodeURIComponent(url)}&proxy=${encodeURIComponent(proxy)}`);
         if (!response.ok) {
           throw new Error('Failed to fetch the URL using the proxy');
         }

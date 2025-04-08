@@ -30,12 +30,13 @@ export default function ProxyViewPage() {
   const handleDirectAccess = async () => {
     if (url && proxy) {
       try {
+        // Call the API to fetch the URL using the proxy
         const response = await fetch(`/api/proxy?url=${encodeURIComponent(url)}&proxy=${encodeURIComponent(proxy)}`);
         if (!response.ok) {
           throw new Error('Failed to fetch the URL using the proxy');
         }
         const data = await response.json();
-        window.open(data.proxyUrl, "_blank");
+        window.open(data.proxyUrl, "_blank"); // Open the URL returned by the proxy
       } catch (error) {
         console.error("Proxy Error:", error);
         setError('Failed to use proxy. Please try again later.');
